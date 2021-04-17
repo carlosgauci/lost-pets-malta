@@ -1,5 +1,14 @@
 import React from "react";
+import Header from "./Header";
+import Posts from "./Posts";
+import Footer from "./Footer";
 
 export default function App() {
-  return <h1>App</h1>;
+  return (
+    <>
+      <Header />
+      <Posts />
+      <Footer />
+    </>
+  );
 }
