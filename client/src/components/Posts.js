@@ -4,9 +4,11 @@ import SinglePost from "./SinglePost";
 
 export default function Posts() {
   return (
-    <>
+    <section className="container mx-auto px-2 mb-4 md:mb-8">
       <CategoryFilter />
-      <SinglePost />
-    </>
+      <div className="grid gap-10 template-columns justify-center">
+        <SinglePost />
+      </div>
+    </section>
   );
 }
