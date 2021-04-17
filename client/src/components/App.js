@@ -1,11 +1,17 @@
-import React, { useState } from "react";
-import Header from "./Header";
-import Posts from "./Posts";
-import Footer from "./Footer";
-import PostModal from "./PostModal";
+import React, { useState, useEffect } from "react";
+import { Header, Posts, Footer, PostModal } from "./";
+import { useDispatch } from "react-redux";
+import { getPosts } from "../actions/posts";
 
 export default function App() {
   const [postModalOpen, setPostModalOpen] = useState(true);
+  const dispatch = useDispatch();
+
+  // Get posts
+  useEffect(() => {
+    dispatch(getPosts());
+  }, [dispatch]);
+
   return (
     <>
       <Header />

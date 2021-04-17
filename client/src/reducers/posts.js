@@ -1,12 +1,14 @@
-export default (posts = [], action) => {
+const postReducer = (posts = [], action) => {
   switch (action.type) {
     case "GET_POSTS":
-      return posts;
+      return action.payload;
 
     case "CREATE_POST":
-      return posts;
+      return [...posts, action.payload];
 
     default:
       return posts;
   }
 };
+
+export default postReducer;
