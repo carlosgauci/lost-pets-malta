@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { selectPost, toggleModal } from "../actions/settings";
+import { deletePost } from "../actions/posts";
 
 export default function SinglePost({
   post: { name, breed, contact, image, lastSeen, _id },
@@ -10,6 +11,10 @@ export default function SinglePost({
   const handleEdit = () => {
     dispatch(selectPost(_id));
     dispatch(toggleModal());
+  };
+
+  const handleDelete = () => {
+    dispatch(deletePost(_id));
   };
 
   return (
@@ -26,7 +31,7 @@ export default function SinglePost({
             <span className="font-semibold">Name:</span> {name}
           </li>
           <li className="mb-3">
-            <span className="font-semibold">Breed/Indentifier:</span> {breed}
+            <span className="font-semibold">Breed/Identifier:</span> {breed}
           </li>
           <li className="mb-3">
             <span className="font-semibold">Last Seen:</span> {lastSeen}
@@ -37,7 +42,7 @@ export default function SinglePost({
         </ul>
         <div className="flex justify-between mt-3 text-xs">
           <button onClick={handleEdit}>Edit</button>
-          <button>Delete</button>
+          <button onClick={handleDelete}>Delete</button>
         </div>
       </section>
     </article>

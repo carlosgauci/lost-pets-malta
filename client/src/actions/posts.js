@@ -5,8 +5,8 @@ export const getPosts = () => async (dispatch) => {
   try {
     const { data } = await api.fetchPosts();
     dispatch({ type: "GET_POSTS", payload: data });
-  } catch (error) {
-    console.log(error.message);
+  } catch (err) {
+    console.log(err);
   }
 };
 
@@ -17,15 +17,27 @@ export const createPost = (post) => async (dispatch) => {
     dispatch({ type: "CREATE_POST", payload: data });
     dispatch({ type: "TOGGLE_POST_MODAL" });
   } catch (err) {
-    console.log(err.message);
+    console.log(err);
   }
 };
 
+// Update a post
 export const updatePost = (id, post) => async (dispatch) => {
   try {
     const { data } = await api.updatePost(id, post);
     dispatch({ type: "UPDATE_POST", payload: data });
     dispatch({ type: "TOGGLE_POST_MODAL" });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// Delete a post
+export const deletePost = (id) => async (dispatch) => {
+  try {
+    await api.deletePost(id);
+
+    dispatch({ type: "DELETE_POST", payload: id });
   } catch (err) {
     console.log(err);
   }
