@@ -1,22 +1,51 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { selectCategory } from "../actions/settings";
+import { useSelector } from "react-redux";
 
 export default function CategoryFilter() {
+  const dispatch = useDispatch();
+
+  const handleCategorySelect = (cat) => {
+    dispatch(selectCategory(cat));
+  };
+
+  const selectedCategory = useSelector(
+    (state) => state.settings.categorySelected
+  );
+
   return (
     <section>
       <ul className="flex flex-wrap justify-center my-4 md:my-8">
-        <li className="border border-gray-300 px-2 rounded-lg my-2 mr-2">
+        <li
+          className="border border-gray-300 px-2 rounded-lg my-2 mx-1 cursor-pointer"
+          style={{ backgroundColor: selectedCategory === "" && "#C4B5FD" }}
+          onClick={() => handleCategorySelect("")}
+        >
           All Pets
         </li>
 
-        <li className="border border-gray-300 px-2 rounded-lg my-2 mr-2">
+        <li
+          className="border border-gray-300 px-2 rounded-lg my-2 mx-1 cursor-pointer"
+          style={{ backgroundColor: selectedCategory === "dog" && "#C4B5FD" }}
+          onClick={() => handleCategorySelect("dog")}
+        >
           Dogs
         </li>
 
-        <li className="border border-gray-300 px-2 rounded-lg my-2 mr-2">
+        <li
+          className="border border-gray-300 px-2 rounded-lg my-2 mx-1 cursor-pointer"
+          style={{ backgroundColor: selectedCategory === "cat" && "#C4B5FD" }}
+          onClick={() => handleCategorySelect("cat")}
+        >
           Cats
         </li>
 
-        <li className="border border-gray-300 px-2 rounded-lg my-2 mr-2">
+        <li
+          className="border border-gray-300 px-2 rounded-lg my-2 mx-1 cursor-pointer"
+          style={{ backgroundColor: selectedCategory === "bird" && "#C4B5FD" }}
+          onClick={() => handleCategorySelect("bird")}
+        >
           Birds
         </li>
       </ul>

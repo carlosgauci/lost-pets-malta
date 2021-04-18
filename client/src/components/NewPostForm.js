@@ -13,14 +13,15 @@ export default function NewPostForm() {
     name: "",
     category: "",
     breed: "",
+    lastSeen: "",
     contact: "",
     image: "",
   });
 
-  // Disable submit button while we're uploading an image to cloudinary
+  // State to disable submit button while we're uploading an image to cloudinary
   const [loading, setLoading] = useState(false);
 
-  // Hide uploader once image is uploaded
+  // State to hide uploader once image is uploaded
   const [fileUploaded, setFileUploaded] = useState(false);
 
   // Upload image to cloudinary and get url
@@ -109,6 +110,21 @@ export default function NewPostForm() {
           className="border border-gray-300 rounded px-2 py-1"
           required
           onChange={(e) => setPostData({ ...postData, breed: e.target.value })}
+        />
+      </div>
+
+      {/* Last Seen */}
+      <div className="flex flex-col mb-3">
+        <label htmlFor="lastSeen">Last Seen:</label>
+        <input
+          type="text"
+          name="lastSeen"
+          placeholder="eg: Xemxija"
+          className="border border-gray-300 rounded px-2 py-1"
+          required
+          onChange={(e) =>
+            setPostData({ ...postData, lastSeen: e.target.value })
+          }
         />
       </div>
 

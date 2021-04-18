@@ -1,5 +1,6 @@
 import * as api from "../api";
 
+// Get all posts from api
 export const getPosts = () => async (dispatch) => {
   try {
     const { data } = await api.fetchPosts();
@@ -9,10 +10,12 @@ export const getPosts = () => async (dispatch) => {
   }
 };
 
+// Create a post
 export const createPost = (post) => async (dispatch) => {
   try {
     const { data } = await api.createPost(post);
     dispatch({ type: "CREATE_POST", payload: data });
+    dispatch({ type: "TOGGLE_POST_MODAL" });
   } catch (err) {
     console.log(err.message);
   }
