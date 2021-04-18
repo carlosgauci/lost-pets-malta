@@ -25,11 +25,11 @@ export default function App() {
   }, [postModalOpen]);
 
   return (
-    <>
+    <div className="flex flex-col md:min-h-screen">
       <Header />
       <Posts />
       <Footer />
       {postModalOpen && <PostModal />}
-    </>
+    </div>
   );
 }

@@ -18,7 +18,7 @@ export default function CategoryFilter() {
     <section>
       <ul className="flex flex-wrap justify-center my-4 md:my-8">
         <li
-          className="border border-gray-300 px-2 rounded-lg my-2 mx-1 cursor-pointer"
+          className="border border-gray-300 px-2 rounded-lg my-2 mx-1 cursor-pointer md:mx-3"
           style={{ backgroundColor: selectedCategory === "" && "#C4B5FD" }}
           onClick={() => handleCategorySelect("")}
         >
@@ -26,7 +26,7 @@ export default function CategoryFilter() {
         </li>
 
         <li
-          className="border border-gray-300 px-2 rounded-lg my-2 mx-1 cursor-pointer"
+          className="border border-gray-300 px-2 rounded-lg my-2 mx-1 cursor-pointer  md:mx-3"
           style={{ backgroundColor: selectedCategory === "dog" && "#C4B5FD" }}
           onClick={() => handleCategorySelect("dog")}
         >
@@ -34,7 +34,7 @@ export default function CategoryFilter() {
         </li>
 
         <li
-          className="border border-gray-300 px-2 rounded-lg my-2 mx-1 cursor-pointer"
+          className="border border-gray-300 px-2 rounded-lg my-2 mx-1 cursor-pointer  md:mx-3"
           style={{ backgroundColor: selectedCategory === "cat" && "#C4B5FD" }}
           onClick={() => handleCategorySelect("cat")}
         >
@@ -42,7 +42,7 @@ export default function CategoryFilter() {
         </li>
 
         <li
-          className="border border-gray-300 px-2 rounded-lg my-2 mx-1 cursor-pointer"
+          className="border border-gray-300 px-2 rounded-lg my-2 mx-1 cursor-pointer  md:mx-3"
           style={{ backgroundColor: selectedCategory === "bird" && "#C4B5FD" }}
           onClick={() => handleCategorySelect("bird")}
         >
