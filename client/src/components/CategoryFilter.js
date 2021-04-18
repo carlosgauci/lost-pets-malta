@@ -6,8 +6,8 @@ import { useSelector } from "react-redux";
 export default function CategoryFilter() {
   const dispatch = useDispatch();
 
-  const handleCategorySelect = (cat) => {
-    dispatch(selectCategory(cat));
+  const handleCategorySelect = (category) => {
+    dispatch(selectCategory(category));
   };
 
   const selectedCategory = useSelector(
