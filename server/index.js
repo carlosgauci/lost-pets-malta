@@ -13,9 +13,14 @@ app.use(cors());
 // Routes
 app.use("/posts", postRoutes);
 
+// Greeting route
+app.get("/", (req, res) => {
+  res.send("Lost Pets Malta api");
+});
+
 // Connect to DB
 const DB_CONNECTION_URL = process.env.DB;
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 mongoose
   .connect(DB_CONNECTION_URL, {
