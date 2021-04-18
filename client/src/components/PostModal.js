@@ -9,7 +9,7 @@ export default function PostModal() {
 
   return (
     <section className="fixed bg-black bg-opacity-80 inset-0 flex justify-center items-center">
-      <div className="bg-white px-6 py-4 rounded-lg w-full max-w-sm relative">
+      <div className="bg-white px-6 py-4 rounded-lg w-full max-w-sm relative max-h-screen overflow-y-auto">
         <IoCloseSharp
           className="absolute top-0 right-0 mt-2 mr-2 text-2xl"
           onClick={() => dispatch(toggleModal())}

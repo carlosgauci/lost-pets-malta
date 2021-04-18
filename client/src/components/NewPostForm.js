@@ -63,7 +63,14 @@ export default function NewPostForm() {
           />
         </div>
       ) : (
-        <p className="mb-3">Image upload successful.</p>
+        <div className="flex items-center mb-3">
+          <img
+            src={postData.image}
+            alt="Charlie"
+            className="object-cover w-16 h-16"
+          />
+          <p className="ml-3">Upload successful.</p>
+        </div>
       )}
 
       {/* Name */}
