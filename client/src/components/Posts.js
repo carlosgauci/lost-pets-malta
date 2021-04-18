@@ -17,7 +17,6 @@ export default function Posts() {
     <section className="container mx-auto px-2 mb-4 md:mb-8">
       <CategoryFilter />
       <div className="grid gap-10 template-columns justify-center">
-        {console.log(filteredPosts)}
         {filteredPosts.map((post) => (
           <SinglePost key={post._id} post={post} />
         ))}

@@ -1,9 +1,14 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { toggleModal } from "../actions/settings";
+import { toggleModal, selectPost } from "../actions/settings";
 
 export default function Header() {
   const dispatch = useDispatch();
+
+  const handleModal = () => {
+    dispatch(selectPost(""));
+    dispatch(toggleModal());
+  };
 
   return (
     <header className="bg-black md:h-20">
@@ -15,7 +20,7 @@ export default function Header() {
           <ul className="flex justify-evenly text-white mt-4 md:mt-0">
             <li
               className="bg-purple-600 px-2 rounded-lg md:mr-2"
-              onClick={() => dispatch(toggleModal())}
+              onClick={handleModal}
             >
               Create Post
             </li>

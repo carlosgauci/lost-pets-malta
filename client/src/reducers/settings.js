@@ -1,6 +1,7 @@
 const initState = {
   postModalOpen: false,
   categorySelected: "",
+  currentPostId: "",
 };
 
 const settingsReducer = (state = initState, action) => {
@@ -10,6 +11,9 @@ const settingsReducer = (state = initState, action) => {
 
     case "SELECT_CATEGORY":
       return { ...state, categorySelected: action.payload };
+
+    case "SELECT_CURRENT_POST":
+      return { ...state, currentPostId: action.payload };
 
     default:
       return state;

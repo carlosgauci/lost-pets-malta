@@ -1,8 +1,17 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { selectPost, toggleModal } from "../actions/settings";
 
 export default function SinglePost({
-  post: { name, breed, contact, image, lastSeen },
+  post: { name, breed, contact, image, lastSeen, _id },
 }) {
+  const dispatch = useDispatch();
+
+  const handleEdit = () => {
+    dispatch(selectPost(_id));
+    dispatch(toggleModal());
+  };
+
   return (
     <article className="w-full max-w-md border border-gray-300 rounded-lg overflow-hidden">
       {/* Image container */}
@@ -26,6 +35,10 @@ export default function SinglePost({
             <span className="font-semibold">Contact:</span> {contact}
           </li>
         </ul>
+        <div className="flex justify-between mt-3 text-xs">
+          <button onClick={handleEdit}>Edit</button>
+          <button>Delete</button>
+        </div>
       </section>
     </article>
   );

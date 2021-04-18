@@ -20,3 +20,13 @@ export const createPost = (post) => async (dispatch) => {
     console.log(err.message);
   }
 };
+
+export const updatePost = (id, post) => async (dispatch) => {
+  try {
+    const { data } = await api.updatePost(id, post);
+    dispatch({ type: "UPDATE_POST", payload: data });
+    dispatch({ type: "TOGGLE_POST_MODAL" });
+  } catch (err) {
+    console.log(err);
+  }
+};

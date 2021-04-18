@@ -1,11 +1,13 @@
 import React from "react";
 import { NewPostForm } from "./";
 import { IoCloseSharp } from "react-icons/io5";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleModal } from "../actions/settings";
 
 export default function PostModal() {
   const dispatch = useDispatch();
+
+  const currentPost = useSelector((state) => state.settings.currentPostId);
 
   return (
     <section className="fixed bg-black bg-opacity-80 inset-0 flex justify-center items-center">
@@ -14,7 +16,9 @@ export default function PostModal() {
           className="absolute top-0 right-0 mt-2 mr-2 text-2xl"
           onClick={() => dispatch(toggleModal())}
         />
-        <h2 className="text-center text-2xl mb-4">Create Post</h2>
+        <h2 className="text-center text-2xl mb-4">
+          {currentPost ? "Edit" : "Create"} Post
+        </h2>
         <NewPostForm />
       </div>
     </section>
