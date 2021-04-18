@@ -1,17 +1,19 @@
+import { GET_POSTS, CREATE, UPDATE, DELETE } from "../constants/actionTypes";
+
 const postReducer = (posts = [], action) => {
   switch (action.type) {
-    case "GET_POSTS":
+    case GET_POSTS:
       return action.payload;
 
-    case "CREATE_POST":
+    case CREATE:
       return [...posts, action.payload];
 
-    case "UPDATE_POST":
+    case UPDATE:
       return posts.map((post) =>
         post._id === action.payload._id ? action.payload : post
       );
 
-    case "DELETE_POST":
+    case DELETE:
       return posts.filter((post) => post._id !== action.payload);
 
     default:
