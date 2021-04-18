@@ -19,7 +19,7 @@ export default function NewPostForm() {
   // Default state for post data
   const [postData, setPostData] = useState({
     name: "",
-    category: "Dog",
+    category: "dog",
     breed: "",
     lastSeen: "",
     contact: "",
