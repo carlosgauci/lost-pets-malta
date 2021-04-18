@@ -5,3 +5,4 @@ export { default as Footer } from "./Footer";
 export { default as CategoryFilter } from "./CategoryFilter";
 export { default as NewPostForm } from "./NewPostForm";
 export { default as PostModal } from "./PostModal";
+export { default as Navbar } from "./Navbar";
