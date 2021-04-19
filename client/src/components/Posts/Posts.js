@@ -22,7 +22,7 @@ export default function Posts() {
   }, [dispatch]);
 
   return (
-    <section className="container mx-auto px-4 mb-4 md:mb-8 flex-1">
+    <section className="container mx-auto mb-4 md:mb-8 flex-1">
       <CategoryFilter />
       <div className="grid gap-10 template-columns justify-center">
         {filteredPosts.map((post) => (

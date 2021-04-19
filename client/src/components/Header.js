@@ -9,7 +9,7 @@ export default function Header() {
 
   return (
     <header className="bg-black md:h-20 relative">
-      <div className="container px-4 py-4 mx-auto flex justify-between md:grid md:grid-cols-3 md:items-center md:py-0 md:h-full ">
+      <div className="container py-4 mx-auto flex justify-between md:grid md:grid-cols-3 md:items-center md:py-0 md:h-full">
         <h1 className="text-3xl text-center text-white leading-none cursor-default md:text-3xl md:col-start-2">
           Lost Pets Malta
         </h1>
