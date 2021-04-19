@@ -2,12 +2,14 @@ import {
   TOGGLE_MODAL,
   SELECT_CATEGORY,
   SELECT_POST,
+  TOGGLE_NAVIGATION,
 } from "../constants/actionTypes";
 
 const initState = {
   postModalOpen: false,
   categorySelected: "",
   currentPostId: "",
+  navigationOpen: false,
 };
 
 const settingsReducer = (state = initState, action) => {
@@ -20,6 +22,9 @@ const settingsReducer = (state = initState, action) => {
 
     case SELECT_POST:
       return { ...state, currentPostId: action.payload };
+
+    case TOGGLE_NAVIGATION:
+      return { ...state, navigationOpen: !state.navigationOpen };
 
     default:
       return state;

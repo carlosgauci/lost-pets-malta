@@ -2,6 +2,7 @@ import {
   SELECT_POST,
   SELECT_CATEGORY,
   TOGGLE_MODAL,
+  TOGGLE_NAVIGATION,
 } from "../constants/actionTypes";
 
 export const toggleModal = () => {
@@ -14,4 +15,8 @@ export const selectCategory = (category) => {
 
 export const selectPost = (id) => {
   return { type: SELECT_POST, payload: id };
+};
+
+export const toggleNavigation = () => {
+  return { type: TOGGLE_NAVIGATION };
 };
