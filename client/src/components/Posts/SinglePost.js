@@ -18,7 +18,7 @@ export default function SinglePost({
   };
 
   return (
-    <article className="w-full max-w-md border border-gray-300 rounded-lg overflow-hidden">
+    <article className="w-full max-w-md border border-gray-300 rounded overflow-hidden">
       {/* Image container */}
       <div className="w-full h-72 bg-blue-400">
         <img src={image} alt="Charlie" className="object-cover w-full h-full" />
