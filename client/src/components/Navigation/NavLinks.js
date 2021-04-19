@@ -1,14 +1,21 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { toggleModal, selectPost, toggleNavigation } from "../actions/settings";
+import {
+  toggleModal,
+  selectPost,
+  toggleNavigation,
+} from "../../actions/settings";
+import { Link } from "react-router-dom";
 
 export default function NavLinks({ mobile }) {
   const dispatch = useDispatch();
 
+  // Open create post modal
+  // Clear selected post in case we were editing, if on mobile close the nav, and toggle the modal
   const handleModal = () => {
     dispatch(selectPost(""));
-    dispatch(toggleModal());
     mobile && dispatch(toggleNavigation());
+    dispatch(toggleModal());
   };
 
   const user = true;
@@ -26,12 +33,9 @@ export default function NavLinks({ mobile }) {
           <li className=" px-2 rounded-lg cursor-pointer">Logout</li>
         </>
       ) : (
-        <>
-          <li className="px-2 rounded-lg mb-4 md:mb-0 md:mr-2 cursor-pointer">
-            Create Account
-          </li>
-          <li className="px-2 rounded-lg cursor-pointer">Login</li>
-        </>
+        <li className="px-2 rounded-lg cursor-pointer">
+          <Link to="/login">Login</Link>
+        </li>
       )}
     </ul>
   );

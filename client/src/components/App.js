@@ -1,17 +1,11 @@
 import React, { useEffect } from "react";
-import { Header, Posts, Footer, PostModal, Navigation } from "./";
-import { useDispatch, useSelector } from "react-redux";
-import { getPosts } from "../actions/posts";
+import { useSelector } from "react-redux";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Header, Posts, Footer, PostModal, Navigation, Auth } from "./";
 
 export default function App() {
-  const dispatch = useDispatch();
   const postModalOpen = useSelector((state) => state.settings.postModalOpen);
   const navigationOpen = useSelector((state) => state.settings.navigationOpen);
-
-  // Get posts
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [dispatch]);
 
   // Disable scrolling while post modal or nav is open
   let html;
@@ -26,12 +20,19 @@ export default function App() {
   }, [postModalOpen, navigationOpen]);
 
   return (
-    <div className="flex flex-col md:min-h-screen">
-      <Header />
-      <Posts />
-      <Footer />
-      {postModalOpen && <PostModal />}
-      {navigationOpen && <Navigation />}
-    </div>
+    <BrowserRouter>
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-1">
+          <Switch>
+            <Route path="/" exact component={Posts} />
+            <Route path="/login" exact component={Auth} />
+          </Switch>
+        </main>
+        <Footer />
+        {postModalOpen && <PostModal />}
+        {navigationOpen && <Navigation />}
+      </div>
+    </BrowserRouter>
   );
 }

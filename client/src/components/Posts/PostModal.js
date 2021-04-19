@@ -1,8 +1,8 @@
 import React from "react";
-import { NewPostForm } from "./";
+import { PostForm } from "../";
 import { IoCloseSharp } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleModal } from "../actions/settings";
+import { toggleModal } from "../../actions/settings";
 
 export default function PostModal() {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ export default function PostModal() {
         <h2 className="text-center text-2xl mb-4">
           {currentPost ? "Edit" : "Create"} Post
         </h2>
-        <NewPostForm />
+        <PostForm />
       </div>
     </section>
   );

@@ -1,8 +1,8 @@
 import React from "react";
-import { NavLinks } from "./";
+import { NavLinks } from "../";
 import { IoCloseSharp } from "react-icons/io5";
 import { useDispatch } from "react-redux";
-import { toggleNavigation } from "../actions/settings";
+import { toggleNavigation } from "../../actions/settings";
 
 export default function Navigation() {
   const dispatch = useDispatch();

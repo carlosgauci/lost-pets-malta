@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { selectCategory } from "../actions/settings";
+import { selectCategory } from "../../actions/settings";
 import { useSelector } from "react-redux";
 
 export default function CategoryFilter() {

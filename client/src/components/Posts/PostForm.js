@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { createPost, updatePost } from "../actions/posts";
+import { createPost, updatePost } from "../../actions/posts";
 
 export default function NewPostForm() {
   // Cloudinary upload url and preset

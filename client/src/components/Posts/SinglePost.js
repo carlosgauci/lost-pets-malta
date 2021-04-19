@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { selectPost, toggleModal } from "../actions/settings";
-import { deletePost } from "../actions/posts";
+import { selectPost, toggleModal } from "../../actions/settings";
+import { deletePost } from "../../actions/posts";
 
 export default function SinglePost({
   post: { name, breed, contact, image, lastSeen, _id },

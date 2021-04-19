@@ -1,8 +1,11 @@
-import React from "react";
-import { CategoryFilter, SinglePost } from "./";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { CategoryFilter, SinglePost } from "../";
+import { useDispatch, useSelector } from "react-redux";
+import { getPosts } from "../../actions/posts";
 
 export default function Posts() {
+  const dispatch = useDispatch();
+
   const posts = useSelector((state) => state.posts);
   const selectedCategory = useSelector(
     (state) => state.settings.categorySelected
@@ -12,6 +15,11 @@ export default function Posts() {
   const filteredPosts = posts
     .filter((post) => post.category.includes(selectedCategory))
     .reverse();
+
+  // Get posts
+  useEffect(() => {
+    dispatch(getPosts());
+  }, [dispatch]);
 
   return (
     <section className="container mx-auto px-4 mb-4 md:mb-8 flex-1">
