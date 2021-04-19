@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLinks } from "./";
+import { Link } from "react-router-dom";
 import { BiMenu } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { toggleNavigation } from "../actions/settings";
@@ -11,7 +12,7 @@ export default function Header() {
     <header className="bg-black md:h-20 relative">
       <div className="container py-4 mx-auto flex justify-between md:grid md:grid-cols-3 md:items-center md:py-0 md:h-full">
         <h1 className="text-3xl text-center text-white leading-none cursor-default md:text-3xl md:col-start-2">
-          Lost Pets Malta
+          <Link to="/">Lost Pets Malta</Link>
         </h1>
 
         {/* Mobile nav icon */}

@@ -12,9 +12,11 @@ export { default as CategoryItem } from "./Posts/CategoryItem";
 export { default as SinglePost } from "./Posts/SinglePost";
 export { default as PostModal } from "./Posts/PostModal";
 
-// Post Form
-export { default as PostForm } from "./Posts/Form/PostForm";
-export { default as Input } from "./Posts/Form/Input";
+// Forms
+export { default as PostForm } from "./Form/PostForm";
+export { default as AuthForm } from "./Form/AuthForm";
+export { default as Input } from "./Form/Input";
+export { default as Button } from "./Form/Button";
 
 // Auth
 export { default as Auth } from "./Auth/Auth";

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Input } from "../../";
+import { Input, Button } from "../";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { createPost, updatePost } from "../../../actions/posts";
+import { createPost, updatePost } from "../../actions/posts";
 
 export default function NewPostForm() {
   // Cloudinary upload url and preset
@@ -156,13 +156,7 @@ export default function NewPostForm() {
         }
       />
 
-      <button
-        type="submit"
-        className="bg-purple-600 text-white px-3 py-1 rounded-lg block mx-auto mt-6 mb-2 disabled:opacity-50"
-        disabled={loading}
-      >
-        Submit Post
-      </button>
+      <Button text="Submit Post" disabled={loading} />
     </form>
   );
 }
