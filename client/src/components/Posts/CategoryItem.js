@@ -8,8 +8,9 @@ export default function CategoryItem({ text, category, handleCategorySelect }) {
 
   return (
     <li
-      className="border border-gray-300 px-2 rounded-lg my-2 mx-1 cursor-pointer md:mx-3"
-      style={{ backgroundColor: selectedCategory === category && "#C4B5FD" }}
+      className={`border border-gray-300 w-16 text-center text-sm font-semibold py-2 rounded my-2 mx-1 cursor-pointer sm:w-20 md:mx-3 leading-none ${
+        selectedCategory === category && "bg-purple-600 text-white"
+      }`}
       onClick={() => handleCategorySelect(category)}
     >
       {text}

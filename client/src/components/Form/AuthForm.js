@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Input, Button } from "../";
 
-export default function AuthForm() {
-  const isSignup = true;
-
+export default function AuthForm({ isSignup }) {
   const [formData, setFormData] = useState({
     username: "",
     email: "",

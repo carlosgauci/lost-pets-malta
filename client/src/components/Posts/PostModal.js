@@ -16,7 +16,7 @@ export default function PostModal() {
           className="absolute top-0 right-0 mt-2 mr-2 text-2xl cursor-pointer"
           onClick={() => dispatch(toggleModal())}
         />
-        <h2 className="text-center text-2xl mb-4">
+        <h2 className="text-center text-2xl font-semibold mb-4">
           {currentPost ? "Edit" : "Create"} Post
         </h2>
         <PostForm />

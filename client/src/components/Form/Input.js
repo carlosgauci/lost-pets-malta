@@ -11,7 +11,9 @@ export default function Input({
 }) {
   return (
     <div className="flex flex-col mb-3">
-      <label htmlFor={name}>{label}</label>
+      <label htmlFor={name} className="font-medium">
+        {label}
+      </label>
 
       {/* Show input or select based on type, input can be either text or file input */}
       {type !== "select" ? (
