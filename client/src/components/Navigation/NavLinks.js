@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {
   toggleModal,
   selectPost,
   toggleNavigation,
 } from "../../actions/settings";
-import { Link } from "react-router-dom";
+import { logout } from "../../actions/auth";
+import { Link, useHistory, useLocation } from "react-router-dom";
 
 export default function NavLinks({ mobile }) {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const location = useLocation();
+
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
 
   // Open create post modal
   // Clear selected post in case we were editing, if on mobile close the nav, and toggle the modal
@@ -18,7 +23,15 @@ export default function NavLinks({ mobile }) {
     dispatch(toggleModal());
   };
 
-  const user = true;
+  // Logout button
+  const handleLogout = () => {
+    dispatch(logout());
+    history.push("/login");
+  };
+
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("profile")));
+  }, [location]);
 
   return (
     <ul className="flex flex-col items-center text-white text-3xl md:text-base md:flex-row">
@@ -30,11 +43,16 @@ export default function NavLinks({ mobile }) {
           >
             Create Post
           </li>
-          <li className=" px-2 rounded-lg cursor-pointer">Logout</li>
+          <li
+            className=" px-2 rounded-lg cursor-pointer"
+            onClick={handleLogout}
+          >
+            Sign Out
+          </li>
         </>
       ) : (
         <li className="px-2 rounded-lg cursor-pointer">
-          <Link to="/login">Login</Link>
+          <Link to="/login">Sign In</Link>
         </li>
       )}
     </ul>

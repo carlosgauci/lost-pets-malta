@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { CategoryFilter, SinglePost } from "../";
 import { useDispatch, useSelector } from "react-redux";
 import { getPosts } from "../../actions/posts";
@@ -6,6 +6,7 @@ import { getPosts } from "../../actions/posts";
 export default function Posts() {
   const dispatch = useDispatch();
 
+  const user = JSON.parse(localStorage.getItem("profile"));
   const posts = useSelector((state) => state.posts);
   const selectedCategory = useSelector(
     (state) => state.settings.categorySelected
@@ -23,6 +24,11 @@ export default function Posts() {
 
   return (
     <section className="container mx-auto mb-4 md:mb-8 flex-1">
+      {user && (
+        <p className="text-center font-semibold mt-4 md:mt-6">
+          Welcome, {user.result.givenName}!
+        </p>
+      )}
       <CategoryFilter />
       <div className="grid gap-10 template-columns justify-center">
         {filteredPosts.map((post) => (

@@ -12,7 +12,7 @@ export default function CategoryFilter() {
 
   return (
     <section>
-      <ul className="flex flex-wrap justify-center my-4 md:my-8">
+      <ul className="flex flex-wrap justify-center my-4 md:my-6">
         <CategoryItem
           text="All Pets"
           category=""

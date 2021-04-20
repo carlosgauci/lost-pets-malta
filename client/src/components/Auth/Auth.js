@@ -16,7 +16,7 @@ export default function Auth() {
           className="text-purple-600 font-semibold ml-1"
           onClick={() => setIsSignup(!isSignup)}
         >
-          {isSignup ? "Log in" : "Sign Up"}
+          {isSignup ? "Sign in" : "Register"}
         </button>
       </p>
     </section>
