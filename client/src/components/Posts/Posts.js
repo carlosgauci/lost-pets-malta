@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { CategoryFilter, SinglePost } from "../";
 import { useDispatch, useSelector } from "react-redux";
 import { getPosts } from "../../actions/posts";
@@ -26,7 +26,7 @@ export default function Posts() {
     <section className="container mx-auto mb-4 md:mb-8 flex-1">
       {user && (
         <p className="text-center font-semibold mt-4 md:mt-6">
-          Welcome, {user.result.givenName}!
+          Welcome, {user.result.name}!
         </p>
       )}
       <CategoryFilter />

@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer utilities {
+  body {
+    overflow-y: scroll;
+  }
+
   .template-columns {
     grid-template-columns: repeat(auto-fit, minmax(240px, 28rem));
   }
