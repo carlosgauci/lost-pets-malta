@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { GoogleLogin } from "react-google-login";
 import { useDispatch } from "react-redux";
-import { auth, signin, signup } from "../../actions/auth";
+import { auth, signIn, signUp } from "../../actions/auth";
 import { Input, Button } from "../";
 import { FcGoogle } from "react-icons/fc";
 
@@ -29,9 +29,9 @@ export default function AuthForm({ isSignup }) {
     e.preventDefault();
 
     if (isSignup) {
-      dispatch(signup(formData, history));
+      dispatch(signUp(formData, history));
     } else {
-      dispatch(signin(formData, history));
+      dispatch(signIn(formData, history));
     }
   };
 

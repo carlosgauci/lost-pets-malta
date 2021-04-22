@@ -1,4 +1,5 @@
-import { AUTH, LOGOUT, SIGNIN, SIGNOUT } from "../constants/actionTypes";
+import { AUTH, LOGOUT, SIGNIN, SIGNUP } from "../constants/actionTypes";
+import * as api from "../api";
 
 export const auth = (result, token) => {
   return { type: AUTH, data: { result, token } };
@@ -8,9 +9,11 @@ export const logout = () => {
   return { type: LOGOUT };
 };
 
-export const signin = (formData, history) => async (dispatch) => {
+export const signIn = (formData, history) => async (dispatch) => {
   try {
-    // sign in
+    const { data } = await api.signIn(formData);
+
+    dispatch({ type: AUTH, data });
 
     history.push("/");
   } catch (error) {
@@ -18,9 +21,11 @@ export const signin = (formData, history) => async (dispatch) => {
   }
 };
 
-export const signup = (formData, history) => async (dispatch) => {
+export const signUp = (formData, history) => async (dispatch) => {
   try {
-    // sign up
+    const { data } = await api.signUp(formData);
+
+    dispatch({ type: AUTH, data });
 
     history.push("/");
   } catch (error) {
