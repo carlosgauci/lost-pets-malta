@@ -23,14 +23,14 @@ export default function NavLinks({ mobile }) {
     dispatch(toggleModal());
   };
 
-  // Logout
+  // Logout link
   const handleLogout = () => {
     mobile && dispatch(toggleNavigation());
     dispatch(logout());
     history.push("/login");
   };
 
-  // Sign in
+  // Sign in link
   const handleSignIn = () => {
     mobile && dispatch(toggleNavigation());
     history.push("/login");

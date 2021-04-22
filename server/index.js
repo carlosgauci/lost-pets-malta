@@ -4,6 +4,7 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const postRoutes = require("./routes/posts");
+const userRoutes = require("./routes/users");
 
 // Middleware
 app.use(express.json({ extended: false }));
@@ -12,6 +13,7 @@ app.use(cors());
 
 // Routes
 app.use("/posts", postRoutes);
+app.use("/user", userRoutes);
 
 // Greeting route
 app.get("/", (req, res) => {
