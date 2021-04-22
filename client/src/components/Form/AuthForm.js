@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { GoogleLogin } from "react-google-login";
-import { useDispatch } from "react-redux";
-import { auth, signIn, signUp } from "../../actions/auth";
+import { useDispatch, useSelector } from "react-redux";
+import { auth, signIn, signUp, authError } from "../../actions/auth";
 import { Input, Button } from "../";
 import { FcGoogle } from "react-icons/fc";
 
@@ -10,6 +10,7 @@ export default function AuthForm({ isSignup }) {
   const googleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
   const dispatch = useDispatch();
   const history = useHistory();
+  const error = useSelector((state) => state.auth.authError);
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -27,6 +28,7 @@ export default function AuthForm({ isSignup }) {
   // Form submit
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(authError(""));
 
     if (isSignup) {
       dispatch(signUp(formData, history));
@@ -113,6 +115,11 @@ export default function AuthForm({ isSignup }) {
           required={true}
           handleChange={handleChange}
         />
+      )}
+
+      {/* Error message */}
+      {error && (
+        <p className="text-red-500 text-center font-semibold">{error}</p>
       )}
 
       {/* Form submit button */}
