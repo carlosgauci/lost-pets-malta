@@ -15,7 +15,7 @@ const getPosts = async (req, res) => {
 // Create new post
 const createPost = async (req, res) => {
   const post = req.body;
-  const newPost = new Post(post);
+  const newPost = new Post({ ...post, creator: req.userId });
 
   try {
     await newPost.save();
@@ -48,7 +48,7 @@ const updatePost = async (req, res) => {
 const deletePost = async (req, res) => {
   const { id } = req.params;
 
-  // Check if ID is valid
+  // Check if post ID is valid
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).send("Post not found");
   }
