@@ -12,7 +12,7 @@ export default function SinglePost({
 
   const handleEdit = () => {
     dispatch(selectPost(_id));
-    dispatch(toggleModal());
+    dispatch(toggleModal(true));
   };
 
   const handleDelete = () => {
