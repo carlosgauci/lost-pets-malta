@@ -10,7 +10,7 @@ export default function Auth() {
         Sign {isSignup ? "Up" : "In"}
       </h2>
       <AuthForm isSignup={isSignup} />
-      <p>
+      <p className="mb-2">
         {isSignup ? "Already have an account?" : "Don't have an account?"}
         <button
           className="text-purple-600 font-semibold ml-1"

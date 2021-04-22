@@ -6,7 +6,7 @@ import {
   toggleNavigation,
 } from "../../actions/settings";
 import { logout } from "../../actions/auth";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 export default function NavLinks({ mobile }) {
   const dispatch = useDispatch();
@@ -23,9 +23,16 @@ export default function NavLinks({ mobile }) {
     dispatch(toggleModal());
   };
 
-  // Logout button
+  // Logout
   const handleLogout = () => {
+    mobile && dispatch(toggleNavigation());
     dispatch(logout());
+    history.push("/login");
+  };
+
+  // Sign in
+  const handleSignIn = () => {
+    mobile && dispatch(toggleNavigation());
     history.push("/login");
   };
 
@@ -51,8 +58,8 @@ export default function NavLinks({ mobile }) {
           </li>
         </>
       ) : (
-        <li className="px-2 rounded-lg cursor-pointer">
-          <Link to="/login">Sign In</Link>
+        <li className="px-2 rounded-lg cursor-pointer" onClick={handleSignIn}>
+          Sign In
         </li>
       )}
     </ul>

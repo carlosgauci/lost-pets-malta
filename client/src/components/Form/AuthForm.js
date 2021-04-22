@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { GoogleLogin } from "react-google-login";
 import { useDispatch } from "react-redux";
-import { auth } from "../../actions/auth";
+import { auth, signin, signup } from "../../actions/auth";
 import { Input, Button } from "../";
 import { FcGoogle } from "react-icons/fc";
 
@@ -12,15 +12,27 @@ export default function AuthForm({ isSignup }) {
   const history = useHistory();
 
   const [formData, setFormData] = useState({
-    username: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
 
-  // Form submit button
+  // Form input change
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Form submit
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (isSignup) {
+      dispatch(signup(formData, history));
+    } else {
+      dispatch(signin(formData, history));
+    }
   };
 
   // Google login success
@@ -43,19 +55,29 @@ export default function AuthForm({ isSignup }) {
 
   return (
     <form onSubmit={handleSubmit} className="container mx-auto max-w-sm">
-      {/* Username - only show on sign up*/}
+      {/* First & last name - only show on sign up*/}
       {isSignup && (
-        <Input
-          type="text"
-          label="Username:"
-          name="username"
-          placeholder="Enter a username"
-          value={formData.username}
-          required={true}
-          handleChange={(e) =>
-            setFormData({ ...formData, username: e.target.value })
-          }
-        />
+        <div className="grid grid-cols-2 gap-2">
+          <Input
+            type="text"
+            label="First Name:"
+            name="firstName"
+            placeholder="Your first name"
+            value={formData.firstName}
+            required={true}
+            handleChange={handleChange}
+          />
+
+          <Input
+            type="text"
+            label="Last Name:"
+            name="lastName"
+            placeholder="Your last name"
+            value={formData.lastName}
+            required={true}
+            handleChange={handleChange}
+          />
+        </div>
       )}
 
       {/* Email */}
@@ -63,12 +85,10 @@ export default function AuthForm({ isSignup }) {
         type="text"
         label="Email:"
         name="email"
-        placeholder="Enter your email address"
+        placeholder="Your email address"
         value={formData.email}
         required={true}
-        handleChange={(e) =>
-          setFormData({ ...formData, email: e.target.value })
-        }
+        handleChange={handleChange}
       />
 
       {/* Password */}
@@ -79,9 +99,7 @@ export default function AuthForm({ isSignup }) {
         placeholder="Enter password"
         value={formData.password}
         required={true}
-        handleChange={(e) =>
-          setFormData({ ...formData, password: e.target.value })
-        }
+        handleChange={handleChange}
       />
 
       {/* Confirm password - only show on signup*/}
@@ -93,9 +111,7 @@ export default function AuthForm({ isSignup }) {
           placeholder="Retype your password"
           value={formData.confirmPassword}
           required={true}
-          handleChange={(e) =>
-            setFormData({ ...formData, confirmPassword: e.target.value })
-          }
+          handleChange={handleChange}
         />
       )}
 
