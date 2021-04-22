@@ -4,9 +4,11 @@ import { selectPost, toggleModal } from "../../actions/settings";
 import { deletePost } from "../../actions/posts";
 
 export default function SinglePost({
-  post: { name, breed, contact, image, lastSeen, _id },
+  post: { name, breed, contact, image, lastSeen, _id, creator },
 }) {
   const dispatch = useDispatch();
+
+  const user = JSON.parse(localStorage.getItem("profile"));
 
   const handleEdit = () => {
     dispatch(selectPost(_id));
@@ -40,10 +42,13 @@ export default function SinglePost({
             <span className="font-semibold">Contact:</span> {contact}
           </li>
         </ul>
-        <div className="flex justify-between mt-3 text-xs">
-          <button onClick={handleEdit}>Edit</button>
-          <button onClick={handleDelete}>Delete</button>
-        </div>
+        {(user?.result.googleId === creator ||
+          user?.result?._id === creator) && (
+          <div className="flex justify-between mt-3 text-xs">
+            <button onClick={handleEdit}>Edit</button>
+            <button onClick={handleDelete}>Delete</button>
+          </div>
+        )}
       </section>
     </article>
   );
