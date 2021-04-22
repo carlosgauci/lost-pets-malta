@@ -30,7 +30,7 @@ export default function Posts() {
         </p>
       )}
       <CategoryFilter />
-      <div className="grid gap-10 template-columns justify-center">
+      <div className="grid gap-10 grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 justify-center grid-flow-row items-start justify-items-center">
         {filteredPosts.map((post) => (
           <SinglePost key={post._id} post={post} />
         ))}

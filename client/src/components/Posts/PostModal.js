@@ -6,7 +6,6 @@ import { toggleModal } from "../../actions/settings";
 
 export default function PostModal() {
   const dispatch = useDispatch();
-
   const currentPost = useSelector((state) => state.settings.currentPostId);
 
   return (
