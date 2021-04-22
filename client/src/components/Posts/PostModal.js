@@ -14,7 +14,7 @@ export default function PostModal() {
       <div className="bg-white px-6 py-4 rounded w-full max-w-sm relative max-h-screen overflow-y-auto">
         <IoCloseSharp
           className="absolute top-0 right-0 mt-2 mr-2 text-2xl cursor-pointer"
-          onClick={() => dispatch(toggleModal())}
+          onClick={() => dispatch(toggleModal(false))}
         />
         <h2 className="text-center text-2xl font-semibold mb-4">
           {currentPost ? "Edit" : "Create"} Post

@@ -15,7 +15,7 @@ const initState = {
 const settingsReducer = (state = initState, action) => {
   switch (action.type) {
     case TOGGLE_MODAL:
-      return { ...state, postModalOpen: !state.postModalOpen };
+      return { ...state, postModalOpen: action.payload };
 
     case SELECT_CATEGORY:
       return { ...state, categorySelected: action.payload };

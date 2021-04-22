@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   toggleModal,
   selectPost,
@@ -13,6 +13,8 @@ export default function NavLinks({ mobile }) {
   const history = useHistory();
   const location = useLocation();
 
+  const modalOpen = useSelector((state) => state.settings.postModalOpen);
+
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
 
   // Open create post modal
@@ -20,7 +22,7 @@ export default function NavLinks({ mobile }) {
   const handleModal = () => {
     dispatch(selectPost(""));
     mobile && dispatch(toggleNavigation());
-    dispatch(toggleModal());
+    dispatch(toggleModal(!modalOpen));
   };
 
   // Logout link

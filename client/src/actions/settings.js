@@ -5,8 +5,8 @@ import {
   TOGGLE_NAVIGATION,
 } from "../constants/actionTypes";
 
-export const toggleModal = () => {
-  return { type: TOGGLE_MODAL };
+export const toggleModal = (payload) => {
+  return { type: TOGGLE_MODAL, payload };
 };
 
 export const selectCategory = (category) => {
