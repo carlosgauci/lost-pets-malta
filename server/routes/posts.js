@@ -7,12 +7,14 @@ const {
   deletePost,
 } = require("../controllers/posts");
 
+const auth = require("../middleware/auth");
+
 router.get("/", getPosts);
 
-router.post("/", createPost);
+router.post("/", auth, createPost);
 
-router.patch("/:id", updatePost);
+router.patch("/:id", auth, updatePost);
 
-router.delete("/:id", deletePost);
+router.delete("/:id", auth, deletePost);
 
 module.exports = router;
