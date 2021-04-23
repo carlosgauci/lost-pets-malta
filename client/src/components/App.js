@@ -24,7 +24,7 @@ export default function App() {
     postModalOpen || navigationOpen
       ? (html.style.overflow = "hidden")
       : (html.style.overflow = "visible");
-  }, [postModalOpen, navigationOpen]);
+  }, [postModalOpen, navigationOpen, html.style]);
 
   // If a user is logged in, check if their token expired
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function App() {
         history.push("/login");
       }
     }
-  }, [postModalOpen, location, dispatch]);
+  }, [postModalOpen, location, history, dispatch, user?.token]);
 
   return (
     <div className="flex flex-col min-h-screen">
