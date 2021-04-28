@@ -4,7 +4,7 @@ const postSchema = mongoose.Schema({
   name: String,
   category: String,
   breed: String,
-  lastSeen: String,
+  description: String,
   contact: String,
   image: String,
   createdAt: {

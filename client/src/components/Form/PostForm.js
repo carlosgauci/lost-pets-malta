@@ -22,7 +22,7 @@ export default function NewPostForm() {
     name: "",
     category: "dog",
     breed: "",
-    lastSeen: "",
+    description: "",
     contact: "",
     image: "",
   });
@@ -108,9 +108,9 @@ export default function NewPostForm() {
       {/* Category Select*/}
       <Input
         type="select"
-        label="Category"
+        label="Category:"
         name="category"
-        placeholder="Category:"
+        placeholder="Category"
         value={postData.category}
         handleChange={(e) =>
           setPostData({ ...postData, category: e.target.value })
@@ -130,16 +130,16 @@ export default function NewPostForm() {
         }
       />
 
-      {/* Last Seen */}
+      {/* Description */}
       <Input
-        type="text"
-        label="Last Seen:"
-        name="lastSeen"
-        placeholder="eg: Xemxija"
-        value={postData.lastSeen}
+        type="textarea"
+        label="Description:"
+        name="description"
+        placeholder="Add a short description / last known whereabouts of your pet (max 200 chars)."
+        value={postData.description}
         required={true}
         handleChange={(e) =>
-          setPostData({ ...postData, lastSeen: e.target.value })
+          setPostData({ ...postData, description: e.target.value })
         }
       />
 
@@ -148,7 +148,7 @@ export default function NewPostForm() {
         type="text"
         label="Contact:"
         name="contact"
-        placeholder="Phone number or email"
+        placeholder="Phone number or email address"
         value={postData.contact}
         required={true}
         handleChange={(e) =>

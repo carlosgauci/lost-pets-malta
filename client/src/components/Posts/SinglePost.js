@@ -4,7 +4,7 @@ import { selectPost, toggleModal } from "../../actions/settings";
 import { deletePost } from "../../actions/posts";
 
 export default function SinglePost({
-  post: { name, breed, contact, image, lastSeen, _id, creator },
+  post: { name, breed, contact, image, description, _id, creator },
 }) {
   const dispatch = useDispatch();
 
@@ -20,7 +20,7 @@ export default function SinglePost({
   };
 
   return (
-    <article className="w-full max-w-xl border border-gray-200 shadow-sm rounded overflow-hidden">
+    <article className="w-full max-w-xl shadow-sm rounded overflow-hidden">
       {/* Image container */}
       <div className="w-full h-80 bg-blue-400 relative">
         <img src={image} alt={name} className="object-cover w-full h-full" />
@@ -46,8 +46,8 @@ export default function SinglePost({
       </div>
 
       {/* Text */}
-      <section className="p-3">
-        <ul className="grid grid-cols-2 text-center break-all">
+      <section className="p-1 md:p-2 border border-gray-200">
+        <ul className="grid grid-cols-2 text-center break-words">
           <li className="flex flex-col p-4">
             <span className="font-bold text-xs tracking-widest mb-2">NAME</span>
             <p>{name}</p>
@@ -58,34 +58,19 @@ export default function SinglePost({
             </span>
             <p>{breed}</p>
           </li>
-          <li className=" flex flex-col p-4">
+          <li className="flex flex-col p-4 col-span-2  border-t border-b border-gray-100">
             <span className="font-bold text-xs tracking-widest mb-2">
-              LAST SEEN
+              DESCRIPTION
             </span>
-            <p>{lastSeen}</p>
+            <p>{description}</p>
           </li>
-          <li className="flex flex-col p-4">
+          <li className="flex flex-col p-4 col-span-2">
             <span className="font-bold text-xs tracking-widest mb-2">
               CONTACT
             </span>
             <p>{contact}</p>
           </li>
         </ul>
-
-        {/* <ul className="text-lg">
-          <li className="mb-3">
-            <span className="font-semibold">Name:</span> {name}
-          </li>
-          <li className="mb-3">
-            <span className="font-semibold">Breed/Identifier:</span> {breed}
-          </li>
-          <li className="mb-3">
-            <span className="font-semibold">Last Seen:</span> {lastSeen}
-          </li>
-          <li>
-            <span className="font-semibold">Contact:</span> {contact}
-          </li>
-        </ul> */}
       </section>
     </article>
   );
