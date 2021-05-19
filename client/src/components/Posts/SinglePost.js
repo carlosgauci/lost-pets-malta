@@ -16,13 +16,13 @@ export default function SinglePost({
   };
 
   const handleDelete = () => {
-    dispatch(deletePost(_id));
+    window.confirm("Are you sure?") && dispatch(deletePost(_id));
   };
 
   return (
     <article className="w-full max-w-xl shadow-sm rounded overflow-hidden">
       {/* Image container */}
-      <div className="w-full h-80 bg-blue-400 relative">
+      <div className="w-full h-80 relative">
         <img src={image} alt={name} className="object-cover w-full h-full" />
 
         {/* Edit & delete buttons, only show to post creator */}
