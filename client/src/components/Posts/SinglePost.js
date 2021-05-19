@@ -16,7 +16,7 @@ export default function SinglePost({
   };
 
   const handleDelete = () => {
-    dispatch(deletePost(_id));
+    window.confirm("Are you sure?") && dispatch(deletePost(_id));
   };
 
   return (
